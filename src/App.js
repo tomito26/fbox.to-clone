@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState,useEffect } from 'react'
+import Header from './components/Header'
+import NowPlayingMovies from './components/NowPlayingMovies'
 
 function App() {
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([])
+  useEffect(() => {
+    const getNowPlayingMovies = async () => {
+      const playingMovies = await fetchNowPlayingMovies();
+      setNowPlayingMovies(playingMovies)
+
+    }
+    getNowPlayingMovies()
+  
+    
+    
+  }, [])
+  const fetchNowPlayingMovies = async () =>{
+    const response = await fetch(`
+    https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_movies_api_key}&language=en-US`);
+    const data = await response.json();
+    return data.results
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <NowPlayingMovies nowPlayingMovies={nowPlayingMovies}/>
     </div>
   );
 }

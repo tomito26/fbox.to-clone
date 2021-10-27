@@ -1,13 +1,125 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,400;1,700;1,900&display=swap');
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body{
+  background: #293241;
+  color: #f4f4f4;
+  font-size: 18px;
+  font-family: "Lato",sans-serif;
+  overflow-x: hidden;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 10px;
+}
+.navbar{
+  display: flex;
+  
+}
+.logo{
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffaa00;
+}
+nav{
+  display: flex;
+}
+nav ul{
+  list-style: none;
+  display: block;
+  margin-top: 4px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav ul li{
+  display: inline;
+  padding: 0 5px;
+  margin-left: 10px;
+}
+nav ul li a{
+  text-decoration: none;
+  color: #ddd;
+  font-size: 16px;
+  
+}
+.form-group{
+  margin-left: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form-control{
+  height: 45px;
+  width: 250px;
+  border-radius:20px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  padding: 19px 10px 19px 45px; 
+  
+}
+.form-control:focus{
+  background-color: #fff;
+  color: #000;
+ 
+}
+
+
+.search-icon {
+  color: #fff;
+  position: absolute;
+  top: 10.5px;
+  left: 15px;
+ 
+  
+}
+.account{
+  display: flex;
+}
+.account .profile{
+  font-size: 30px;
+  margin-right: 10px;
+}
+.account p{
+  font-size: 15px;
+  margin-top: 10px;
+}
+.container{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 1em;
+  padding: 30px;
+}
+.movie-card img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.movie-card h3{
+  font-size: 16px;
+  font-weight: 400;
+}
+.movie-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.movie-details p{
+  font-size: 14px;
+  color: #ccc;
+}
+
+.movie-details p:last-child{
+  font-size: 11px;
+  border: 1px solid #ddd;
+  padding: 4px;
+  border-radius: 15%;
+  
 }
