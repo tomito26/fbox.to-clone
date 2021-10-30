@@ -13,18 +13,23 @@ const Header = () =>{
                 </ul>
                 <div className="form-group">
                     <div className="search-input">
-                        <input type="text" className="form-control" />
+                        <input type="text" className="form-control" placeholder="Enter your keywords...." />
                     </div>
                     <div className="search-icon">
-                        <i className="fas fa-search"></i>
+                        <i className="fas fa-search" ></i>
                     </div>
                 </div>
             </nav>
         </div>
+        
         <div className="account">
-            <div className="profile"> <i className="fas fa-user-circle"></i></div>
-            <p>Login/Register</p>
+            <a href="#account">
+                <div className="profile"> <i className="fas fa-user-circle"></i></div>
+                <p>Login/Register</p>
+            </a>
         </div>
+       
+
     </header>
     );
 };

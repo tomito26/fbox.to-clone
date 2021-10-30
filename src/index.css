@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 body{
-  background: #293241;
+  background: #14213d;
   color: #f4f4f4;
   font-size: 18px;
   font-family: "Lato",sans-serif;
@@ -15,7 +15,7 @@ header{
   display: flex;
   justify-content: space-between;
   padding: 30px;
-  margin: 10px;
+  
 }
 .navbar{
   display: flex;
@@ -39,30 +39,36 @@ nav ul{
 nav ul li{
   display: inline;
   padding: 0 5px;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 nav ul li a{
   text-decoration: none;
-  color: #ddd;
+  color: #ccc;
   font-size: 16px;
   
 }
 .form-group{
-  margin-left: 10px;
+  margin-left: 40px;
   margin-bottom: 30px;
   position: relative;
 }
 
 .form-control{
-  height: 45px;
-  width: 250px;
-  border-radius:20px;
+  height: 50px;
+  width: 300px;
+  font-size: 17px;
+  border-radius:25px;
   border: none;
   outline: none;
   background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
   padding: 19px 10px 19px 45px; 
   
+}
+.form-control::placeholder{
+  color: #ccc;
+  font-family: "Lato",sans-serif;
+  font-size: 17px;
 }
 .form-control:focus{
   background-color: #fff;
@@ -72,14 +78,16 @@ nav ul li a{
 
 
 .search-icon {
-  color: #fff;
+  color: #ccc;
+  font-family:'Lato',sans-serif ;
+  font-weight: 300;
   position: absolute;
-  top: 10.5px;
-  left: 15px;
+  top: 13px;
+  left: 18px;
  
   
 }
-.account{
+.account a{
   display: flex;
 }
 .account .profile{
@@ -90,11 +98,51 @@ nav ul li a{
   font-size: 15px;
   margin-top: 10px;
 }
+.account a{
+  color: #f4f4f4;
+  text-decoration: none;
+}
+.recommended{
+  display: flex;
+  padding:0 30px;
+}
+.recommended h2{
+  font-size: 30px;
+  font-weight: 300;
+  border-bottom: 1px solid #ccc;
+  margin-right: 30px;
+
+}
+.menu{
+  margin-top: 5px;
+  display: flex;
+}
+.menu p{
+  background-color: #343a40;
+  font-size: 14px;
+  color: #ccc;
+  padding: 7px;
+  margin-left: 9px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.menu p span{
+  margin-right: 8px;
+  font-size: 13px;
+}
+.menu p:hover{
+  background-color: #495057;
+  color: #eee;
+}
+
 .container{
   display: grid;
   grid-template-columns: repeat(6,1fr);
   grid-gap: 1em;
-  padding: 30px;
+  padding:30px;
 }
 .movie-card img{
   width: 100%;
@@ -119,7 +167,30 @@ nav ul li a{
 .movie-details p:last-child{
   font-size: 11px;
   border: 1px solid #ddd;
-  padding: 4px;
+  padding: 2px;
   border-radius: 15%;
+  text-transform: capitalize;
   
+}
+.section-header{
+  display: flex;
+  justify-content: space-between;
+  padding:0 30px;
+}
+.section-header h2{
+  font-size: 30px;
+  font-weight: 300;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3px;
+}
+.section-header p{
+  font-size: 15px;
+  color: #ffaa00;
+  cursor: pointer;
+}
+.section-header p i{
+  margin-left: 4px;
+}
+.section-header p:hover{
+  color: #ffba08;
 }
