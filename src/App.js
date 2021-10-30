@@ -26,6 +26,7 @@ function App() {
     getNowPlayingMovies()
     getLatestMovies()
     getTVshows()
+   
     
     
   }, [])
@@ -47,13 +48,13 @@ function App() {
     const data = await res.json()
     return data.results
   }
-  
+
   return (
     <div className="App">
       <Header/>
       <NowPlayingMovies nowPlayingMovies={nowPlayingMovies}/>
       <LatestMovies movies={latestMovies}/>
-      <TvShows tvShows={tvShows}/>
+      <TvShows tvShows={tvShows} />
     </div>
   );
 }
