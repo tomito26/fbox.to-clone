@@ -2,7 +2,7 @@ const LatestMovie = ({ movie }) => {
     const baseImgUrl = "https://image.tmdb.org/t/p"
     const size = "w500"
     let releaseDate = movie.release_date.split("-")
-    console.log(movie)
+    // console.log(movie)
     return(
     <div className="movie-card">
         <img src={`${baseImgUrl}/${size}${movie.poster_path}`} alt="" />
