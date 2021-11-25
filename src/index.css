@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 body{
-  background: #14213d;
-  color: #f4f4f4;
+  background: #020916;
+  color: #565c67;
   font-size: 18px;
   font-family: "Lato",sans-serif;
   overflow-x: hidden;
@@ -102,22 +102,24 @@ nav ul li a{
   color: #f4f4f4;
   text-decoration: none;
 }
-.recommended{
+.menu{
   display: flex;
   padding:0 30px;
 }
 .recommended h2{
   font-size: 30px;
   font-weight: 300;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #565c67;
   margin-right: 30px;
 
 }
-.menu{
-  margin-top: 5px;
+.menu-list{
+  list-style: none;
+  margin-top: 10px;
   display: flex;
 }
-.menu p{
+
+.menu-link{
   background-color: #343a40;
   font-size: 14px;
   color: #ccc;
@@ -127,13 +129,15 @@ nav ul li a{
   text-align: center;
   cursor: pointer;
   margin-bottom: 5px;
+  text-decoration: none;
+  
 }
 
-.menu p span{
+.menu-link span{
   margin-right: 8px;
   font-size: 13px;
 }
-.menu p:hover{
+.menu-link:hover{
   background-color: #495057;
   color: #eee;
 }
@@ -153,6 +157,7 @@ nav ul li a{
 .movie-card h3{
   font-size: 16px;
   font-weight: 400;
+  color: #ccc;
 }
 .movie-details {
   display: flex;
@@ -161,12 +166,12 @@ nav ul li a{
 }
 .movie-details p{
   font-size: 14px;
-  color: #ccc;
+  color: #565c67;
 }
 
 .movie-details p:last-child{
   font-size: 11px;
-  border: 1px solid #ddd;
+  border: 1px solid #565c67;
   padding: 2px;
   border-radius: 15%;
   text-transform: capitalize;
@@ -180,7 +185,7 @@ nav ul li a{
 .section-header h2{
   font-size: 30px;
   font-weight: 300;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #565c67;
   padding-bottom: 3px;
 }
 .section-header p{

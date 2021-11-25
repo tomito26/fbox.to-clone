@@ -1,61 +1,70 @@
-import { useState,useEffect } from 'react'
 import Header from './components/Header'
-import LatestMovies from './components/LatestMovies'
 import NowPlayingMovies from './components/NowPlayingMovies'
-import TvShows from './components/TvShows';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+import Home from './components/Home';
+import { useState,useEffect } from 'react'
+import RecommendedTvShows from './components/RecommendedTvShows';
+import Trendings from './components/Trendings';
 
 function App() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-  const[latestMovies,setLatestMovies] = useState([]);
-  const[tvShows,setTvShows] = useState([]);
+  const[recommendedTvShows, setRecommendedTvShow] = useState([]);
+  const[trends,setTrends] = useState([]);
 
-  useEffect(() => {
+
+  useEffect(()=>{
     const getNowPlayingMovies = async () => {
       const playingMovies = await fetchNowPlayingMovies();
       setNowPlayingMovies(playingMovies)
 
     }
-    const getLatestMovies = async () =>{
-      const latestmovies = await fetchLatestMovies()
-      setLatestMovies(latestmovies)
+    const getRecommendedTvShows = async () =>{
+      const tvShows = await fetchRecommendedTvShows()
+      setRecommendedTvShow(tvShows)
     }
-    const getTVshows = async () =>{
-      const latestTvshows = await fetchTvShows()
-      setTvShows(latestTvshows)
-    }
-    getNowPlayingMovies()
-    getLatestMovies()
-    getTVshows()
-   
+    const getTrends = async () =>{
+      const trendings = await fetchTrendings()
+      setTrends(trendings)
+    } 
+    getNowPlayingMovies();
+    getRecommendedTvShows();
+    getTrends()
     
-    
-  }, [])
-
+  },[]);
   const fetchNowPlayingMovies = async () =>{
     const response = await fetch(`
     https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_movies_api_key}&language=en-US`);
     const data = await response.json();
-    return data.results
+    return data.results;
   }
-  const fetchLatestMovies = async () => {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_movies_api_key}&language=en-US`)
-    const data = await res.json()
-    return data.results
-  }
-
-  const fetchTvShows = async () =>{
-    const res = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_movies_api_key}&language=en-US&page=1`)
-    const data = await res.json()
-    return data.results
+  const fetchRecommendedTvShows = async () =>{
+    const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_movies_api_key}&language=en-US`);
+    const data = await res.json();
+    return data.results;
   }
 
+  const fetchTrendings = async () =>{
+    const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_movies_api_key}`);
+    const data = await res.json();
+    return data.results;
+  }
+
+  console.log(trends)
   return (
-    <div className="App">
-      <Header/>
-      <NowPlayingMovies nowPlayingMovies={nowPlayingMovies}/>
-      <LatestMovies movies={latestMovies}/>
-      <TvShows tvShows={tvShows} />
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Routes>
+          <Route path='/' element={<Home/>} >
+            <Route path='/' element={<NowPlayingMovies nowPlayingMovies={nowPlayingMovies}/>}/>
+            <Route path="tvshows" element={<RecommendedTvShows recommendedTvShows={recommendedTvShows}/>}/>
+            <Route path="trending" element={<Trendings trends={trends}/>} />
+          </Route>
+         
+          
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

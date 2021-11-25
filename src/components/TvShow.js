@@ -2,7 +2,7 @@ const TvShow = ({tvShow}) =>{
     const baseImgUrl = "https://image.tmdb.org/t/p"
     const size = "w500"
     let firstAirDate = tvShow.first_air_date.split("-")
-    console.log(firstAirDate[0])
+    // console.log(firstAirDate[0])
     return(
     <div className="movie-card">   
         <img src={`${baseImgUrl}/${size}${tvShow.poster_path}`} alt="" />
